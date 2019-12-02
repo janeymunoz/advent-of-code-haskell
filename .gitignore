@@ -1,0 +1,5 @@
+.stack-work/
+advent-of-code-haskell.cabal
+*~
+inputs/Janey/*
+tests/*
