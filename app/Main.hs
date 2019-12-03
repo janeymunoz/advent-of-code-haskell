@@ -81,4 +81,6 @@ problems :: Map ProblemID (Text -> Text)
 problems =
   Map.fromList [ (ProblemID Janey (Day 1) One, show . J.d1p1 . J.textToInts)
                , (ProblemID Janey (Day 1) Two, show . J.d1p2 . J.textToInts)
+               , (ProblemID Janey (Day 2) One, show . J.d2p1 . J.textCsvToInts)
+               , (ProblemID Janey (Day 2) Two, show . J.d2p2 . J.textCsvToInts)
                ]
