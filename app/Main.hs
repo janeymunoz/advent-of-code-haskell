@@ -83,4 +83,6 @@ problems =
                , (ProblemID Janey (Day 1) Two, show . J.d1p2 . J.textToInts)
                , (ProblemID Janey (Day 2) One, show . J.d2p1 . J.textCsvToInts)
                , (ProblemID Janey (Day 2) Two, show . J.d2p2 . J.textCsvToInts)
+               , (ProblemID Janey (Day 3) One, show . J.d3Both . J.parseInputD3)
+               , (ProblemID Janey (Day 4) One, show . J.d4p1 . J.textToIntTuple)
                ]
