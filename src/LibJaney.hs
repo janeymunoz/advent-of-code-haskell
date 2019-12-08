@@ -141,6 +141,12 @@ parseInputD3 t = ( catMaybes $ map (toMove . toS) input1
         dis <- readMaybe i
         pure $ Move dir dis
 
+d3p1 :: ([Move], [Move]) -> Maybe Int
+d3p1 = fst . d3Both
+
+d3p2 :: ([Move], [Move]) -> Maybe Int
+d3p2 = snd . d3Both
+
 d3Both :: ([Move], [Move]) -> (Maybe Int, Maybe Int)
 d3Both (moves1, moves2) =
   ( head . sort . map (manhattanDist coordOrigin) $ Set.toList coordsIntersect 

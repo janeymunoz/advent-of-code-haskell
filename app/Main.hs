@@ -19,10 +19,8 @@ main = do
   
   where
     inputFP :: ProblemID -> FilePath
-    inputFP (ProblemID u (Day d) p) =
-      "inputs" FP.</>
-        (show u) FP.</>
-          "day" <> (show d) <> "-part" <> (if p == One then "1" else "2")
+    inputFP (ProblemID u (Day d) _) =
+      "inputs" FP.</> (show u) FP.</> "day" <> (show d)
 
     doProblem :: ProblemID -> Text -> Text
     doProblem pID input =
@@ -62,7 +60,7 @@ main = do
             Just p  -> case p of
                          1 -> Right One
                          2 -> Right Two
-                         _ -> Left $ toS "'Part' can be 1 or 2"
+                         _ -> Left $ toS "'Part' can be 1, 2, or 0 (both)"
 
 data Part = One | Two
   deriving (Eq, Ord, Show)
@@ -83,6 +81,7 @@ problems =
                , (ProblemID Janey (Day 1) Two, show . J.d1p2 . J.textToInts)
                , (ProblemID Janey (Day 2) One, show . J.d2p1 . J.textCsvToInts)
                , (ProblemID Janey (Day 2) Two, show . J.d2p2 . J.textCsvToInts)
-               , (ProblemID Janey (Day 3) One, show . J.d3Both . J.parseInputD3)
+               , (ProblemID Janey (Day 3) One, show . J.d3p1 . J.parseInputD3)
+               , (ProblemID Janey (Day 3) Two, show . J.d3p2 . J.parseInputD3)
                , (ProblemID Janey (Day 4) One, show . J.d4p1 . J.textToIntTuple)
                ]
